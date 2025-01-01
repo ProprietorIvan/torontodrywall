@@ -1,7 +1,6 @@
-
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { Check } from 'lucide-react';
-
+import Image from 'next/image';
 
 interface Service {
   title: string;
@@ -19,39 +18,40 @@ interface ServiceCardProps {
 const ComparisonSection = () => {
   const services: Service[] = [
     {
-      title: "FLOOD REPAIR",
-      description: "When your property had suffered from the flood, A-Z Handyman will respond quickly to keep you from further damage and will begin the repair and reconstruction procedure as quickly as possible.",
-      buttonText: "FLOOD REPAIR",
-      image: "https://azhandyman.ca/wp-content/uploads/2024/08/Flood-Restoration.jpg",
+      title: "RESIDENTIAL DRYWALL",
+      description: "From single room repairs to complete home renovations, our expert team delivers flawless results for homeowners across Toronto. We handle everything from water damage repairs to texture matching, ensuring your walls look perfect every time.",
+      buttonText: "RESIDENTIAL SERVICES",
+      image: "/photos/homepage/1.jpg",
       orientation: "right",
-      url: "/flood-repair"
+      url: "/residential"
     },
     {
-      title: "DRYWALL",
-      description: "Do you need help for installing dry walls? With A-Z Handyman you have to the right place.",
-      buttonText: "DRYWALL SERVICES",
-      image: "https://azhandyman.ca/wp-content/uploads/2024/08/DrywallRepair.jpg",
+      title: "COMMERCIAL DRYWALL",
+      description: "Specializing in large-scale commercial projects, we bring efficiency and expertise to office buildings, retail spaces, and industrial facilities. Our experienced crews handle multi-floor installations, meeting strict deadlines without compromising quality.",
+      buttonText: "COMMERCIAL SERVICES",
+      image: "/photos/homepage/2.jpg",
       orientation: "left",
-      url: "/drywall"
+      url: "/commercial"
     },
     {
-      title: "General Handyman",
-      description: "For any repair, installation, or upgrade you envision, we offer comprehensive handyman solutions tailored to your needs.",
-      buttonText: "General Handyman",
-      image: "https://azhandyman.ca/wp-content/uploads/2024/08/Handyman.jpg",
+      title: "NEW CONSTRUCTION",
+      description: "Partner with Toronto's leading drywall experts for your new construction project. We work seamlessly with developers and contractors to deliver superior installations that meet all building codes and project specifications.",
+      buttonText: "NEW CONSTRUCTION",
+      image: "/photos/homepage/3.jpg",
       orientation: "right",
-      url: "/general-handyman"
+      url: "/new-construction"
     },
     {
-      title: "AIR CONDITIONING SERVICE",
-      description: "A regular air conditioning service is essential since it keeps your air conditioner functioning more efficiently.",
-      buttonText: "AIR CONDITIONING SERVICE",
-      image: "https://azhandyman.ca/wp-content/uploads/2024/08/AirConditioning.jpg",
+      title: "SPECIALTY FINISHES",
+      description: "Elevate your spaces with our specialty drywall finishes. From custom textures to Level 5 finishes for high-end properties, we bring artistry and technical excellence to every project.",
+      buttonText: "SPECIALTY SERVICES",
+      image: "/photos/homepage/1.jpg",
       orientation: "left",
-      url: "/hvac"
+      url: "/specialty"
     }
   ];
-   const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const copyToClipboard = async (text: string, isPhone: boolean) => {
@@ -76,15 +76,18 @@ const ComparisonSection = () => {
       <div className="w-full md:w-1/2 relative group overflow-hidden">
         <a href={service.url} className="block cursor-pointer">
           <div className="relative overflow-hidden rounded-xl shadow-2xl transform transition-transform duration-500 hover:-translate-y-2">
-            <img 
-              src={service.image} 
-              alt={service.title}
-              className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            <div className="relative h-[600px]">
+              <Image 
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40 group-hover:to-black/60 transition-all duration-300"/>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
               <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-              <p className="text-sm opacity-90">Click to learn more about our {service.title.toLowerCase()} services</p>
+              <p className="text-sm opacity-90">Learn more about our {service.title.toLowerCase()} expertise</p>
             </div>
           </div>
         </a>
@@ -118,10 +121,9 @@ const ComparisonSection = () => {
 
   return (
     <div>
-      {/* Contact Banner Section First - Now with black background */}
       <div className="bg-black w-full p-8 space-y-6">
         <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
-          One Call Can Solve All Your House Problems
+          Toronto Premier Drywall Specialists
         </h1>
         
         <div className="flex justify-center">
@@ -131,74 +133,70 @@ const ComparisonSection = () => {
           </svg>
         </div>
         
-              <button
-        onClick={() => copyToClipboard("7786534862", true)}
-        className="w-full text-center transition-transform duration-200"
-      >
-        <div 
-          className={`text-4xl md:text-6xl font-black text-white tracking-wider mb-8 text-center transition-colors duration-200 ${
-            copiedPhone ? 'text-green-400' : 'text-white'
-          }`}
-          style={{
-            textShadow: '4px 4px 0 rgba(0,0,0,0.3)',
-          }}
+        <button
+          onClick={() => copyToClipboard("7786534862", true)}
+          className="w-full text-center transition-transform duration-200"
         >
-          {copiedPhone ? (
-            <div className="flex items-center justify-center gap-4">
-              <span>Copied!</span>
-              <Check className="w-8 h-8 md:w-12 md:h-12 animate-in fade-in duration-200" />
-            </div>
-          ) : (
-            '+1 778-653-4862'
-          )}
-        </div>
-      </button>
-
-      <h2 className="text-xl md:text-2xl text-white text-center mb-6">
-        And, We Have More Options to Contact Us
-      </h2>
-
-      <div className="flex justify-center">
-        <button 
-          onClick={() => copyToClipboard("info@azhandyman.ca", false)}
-          className={`${
-            copiedEmail 
-              ? 'bg-green-400 scale-95' 
-              : 'bg-yellow-400 hover:bg-yellow-300'
-          } text-black px-8 py-2 font-medium rounded-full transition-all duration-300 flex items-center gap-2`}
-        >
-          {copiedEmail ? (
-            <>
-              <span>Copied!</span>
-              <Check className="w-5 h-5 animate-in fade-in duration-200" />
-            </>
-          ) : (
-            'Email Us'
-          )}
+          <div 
+            className={`text-4xl md:text-6xl font-black text-white tracking-wider mb-8 text-center transition-colors duration-200 ${
+              copiedPhone ? 'text-green-400' : 'text-white'
+            }`}
+            style={{
+              textShadow: '4px 4px 0 rgba(0,0,0,0.3)',
+            }}
+          >
+            {copiedPhone ? (
+              <div className="flex items-center justify-center gap-4">
+                <span>Copied!</span>
+                <Check className="w-8 h-8 md:w-12 md:h-12 animate-in fade-in duration-200" />
+              </div>
+            ) : (
+              '+1 778-653-4862'
+            )}
+          </div>
         </button>
-      </div>
+
+        <h2 className="text-xl md:text-2xl text-white text-center mb-6">
+          Expert Drywall Solutions for Every Project
+        </h2>
+
+        <div className="flex justify-center">
+          <button 
+            onClick={() => copyToClipboard("office@toronto-drywall.com", false)}
+            className={`${
+              copiedEmail 
+                ? 'bg-green-400 scale-95' 
+                : 'bg-yellow-400 hover:bg-yellow-300'
+            } text-black px-8 py-2 font-medium rounded-full transition-all duration-300 flex items-center gap-2`}
+          >
+            {copiedEmail ? (
+              <>
+                <span>Copied!</span>
+                <Check className="w-5 h-5 animate-in fade-in duration-200" />
+              </>
+            ) : (
+              'Email Us'
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* Main Services Section */}
       <section className="py-16 px-5">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-20">
-            <h1 className="text-5xl font-bold mb-6">OUR SERVICES</h1>
+            <h1 className="text-5xl font-bold mb-6">OUR EXPERTISE</h1>
             <div className="flex justify-center items-center gap-4 mb-8">
               <div className="h-px w-16 bg-yellow-400" />
-              <p className="text-lg text-gray-600">What We have Done</p>
+              <p className="text-lg text-gray-600">Comprehensive Drywall Solutions</p>
               <div className="h-px w-16 bg-yellow-400" />
             </div>
             <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-              Our skilled service delivers any complexity of household repairs. Calling our master 
-              will give you the chance to quickly and inexpensively resolve issues with the layout of 
-              your home. Get in touch with us and you will receive guarantees for all services as 
-              well as high-quality work.
+              From precise repairs to complete commercial installations, we bring decades of expertise 
+              to every project. Our skilled teams handle everything from basic patches to complex 
+              multi-floor developments, delivering superior results that stand the test of time.
             </p>
           </div>
 
-          {/* Services List */}
           <div className="space-y-16">
             {services.map((service, index) => (
               <ServiceCard key={index} service={service} />
@@ -211,5 +209,3 @@ const ComparisonSection = () => {
 };
 
 export default ComparisonSection;
-
-
