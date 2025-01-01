@@ -28,7 +28,7 @@ const ComparisonSection = () => {
     },
     {
       title: "NEW CONSTRUCTION",
-      description: "Partner with Toronto&apos;s leading drywall experts for your new construction project. We work seamlessly with developers and contractors.",
+      description: "Partner with Toronto's leading drywall experts for your new construction project. We work seamlessly with developers and contractors.",
       buttonText: "NEW CONSTRUCTION",
       image: "/photos/homepage/3.jpg",
       url: "/new-construction"
@@ -66,7 +66,7 @@ const ComparisonSection = () => {
       <div className="bg-black w-full py-12 px-4">
         <div className="max-w-6xl mx-auto text-center space-y-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-12">
-            Toronto&apos;s Premier Drywall Specialists
+            Toronto's Premier Drywall Specialists
           </h1>
           
           <button
