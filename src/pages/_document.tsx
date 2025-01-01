@@ -1,15 +1,15 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Footer from '@/components/Footer';
+import type { DocumentProps } from 'next/document'
 
-
-export default function Document() {
+export default function Document(props: DocumentProps) {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <meta charSet="utf-8" />
+      </Head>
       <body>
         <Main />
         <NextScript />
-         <Footer />
       </body>
     </Html>
   )

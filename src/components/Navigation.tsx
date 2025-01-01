@@ -1,33 +1,36 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
-const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
+const Navigation = ({ currentPage, showActions = true, transparent = true }: any) => {
   const { push } = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { text: 'Home', url: '/' },
-    // { text: 'About', url: '/about' },
-    // { text: 'Services', url: '/services' },
-    // { text: 'Why hire us', url: '/why-chose-us', },
-    // { text: 'Contact', url: '/contact' },
+    { text: 'Contact', url: '/contact' },
   ];
 
   return (
-    <nav className={`relative ${transparent ? 'bg-transparent !absolute left-0 top-0 w-full z-50' : "bg-withe"}`}>
+    <nav className={`absolute top-0 left-0 w-full z-50 ${transparent ? 'bg-transparent' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20 sm:h-32">
-          {/* Logo - Updated with responsive sizes */}
+        <div className="flex items-center justify-between h-16 sm:h-24">
+          {/* Logo - Updated with Next/Image */}
           <div className="flex items-center gap-2">
-            <div className="w-20 sm:w-32">
-              <img src="./logo.webp" alt='Handyman logo' className="w-full h-auto" />
+            <div className="w-16 sm:w-24 relative">
+              <Image
+                src="/logo.webp"
+                alt="Handyman logo"
+                width={96}
+                height={96}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
 
           {/* Desktop Navigation */}
-
-          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
             {showActions ? (
               <div className='flex flex-1 items-center justify-end gap-8 w-100'>
@@ -39,13 +42,12 @@ const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
                       e.preventDefault();
                       push(link.url)
                     }}
-                    className={`text-xl hover:text-[#ffc526] transition-colors ${transparent ? 'text-white hover:text-[#FACC15]' : 'text-gray-500'}`}
+                    className={`text-lg transition-colors ${transparent ? 'text-white hover:text-[#FACC15]' : 'text-gray-500 hover:text-[#ffc526]'}`}
                   >
                     {link.text}
                   </a>
                 ))}
               </div>
-
             ) : (
               <button
                 onClick={() => window.open('/services', '_current')}
@@ -60,7 +62,7 @@ const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-lg hover:bg-gray-100/10 transition-colors"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6 stroke-white" />
@@ -73,7 +75,7 @@ const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className={`md:hidden absolute top-16 left-0 right-0 bg-white ${transparent ? 'bg-white' : null} border-b shadow-lg z-50`}>
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-black/80 backdrop-blur-sm border-b border-white/10 shadow-lg z-50">
             <div className="px-4 py-2 space-y-1">
               {navLinks.map((link, index) => (
                 <a
@@ -84,7 +86,7 @@ const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
                     push(link.url)
                     setIsMenuOpen(false);
                   }}
-                  className={`block py-2 px-4 text-gray-500 hover:bg-gray-50 rounded-lg transition-colors`}
+                  className="block py-2 px-4 text-white hover:text-[#FACC15] transition-colors"
                 >
                   {link.text}
                 </a>
@@ -92,14 +94,12 @@ const Navigation = ({ currentPage, showActions = true, transparent }: any) => {
 
               {/* Mobile Actions */}
               <div>
-                {showActions ? (
-                  null
-                ) : (
+                {showActions ? null : (
                   <button
                     onClick={() => {
                       setIsMenuOpen(false);
                     }}
-                    className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="w-full bg-[#FACC15] text-black px-4 py-2 rounded-lg hover:bg-[#ffc526] transition-colors"
                   >
                     Get Started Now
                   </button>
