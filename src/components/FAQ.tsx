@@ -4,20 +4,20 @@ import { ArrowRight } from 'lucide-react';
 const FAQ = () => {
   const faqData = [
     {
-      question: "How accurate are the AI-powered quotes?",
-      answer: "Our AI-generated quotes are highly accurate, with a 90% success rate in reflecting the final cost. In rare cases where unforeseen factors arise, we’ll make adjustments and inform you promptly, ensuring complete transparency."
+      question: "How long does a typical drywall repair take?",
+      answer: "Small repairs like patching holes can be completed in 2-4 hours. Larger repairs or full room installations typically take 1-2 days. We ensure proper drying time between coats for the best results."
     },
     {
-      question: "What if the actual repair costs more than the quote?",
-      answer: "Our AI-generated quotes are 90% accurate, but occasionally adjustments may be necessary if unforeseen factors arise during the repair process. Rest assured, we’ll always discuss any changes with you before proceeding."
+      question: "Do you provide free estimates for drywall work?",
+      answer: "Yes, we provide free, detailed estimates for all drywall projects. We'll assess the damage or project scope and provide you with a clear, written quote before any work begins."
     },
     {
-      question: "Are your handymen licensed and insured?",
-      answer: "Yes, all our handymen undergo thorough background checks, are fully licensed, and carry comprehensive insurance coverage for your peace of mind."
+      question: "Are your drywall contractors licensed and insured?",
+      answer: "Yes, all our drywall contractors are fully licensed, insured, and have extensive experience in both residential and commercial projects. We maintain comprehensive insurance coverage for your peace of mind."
     },
     {
-      question: "How quickly can I get service?",
-      answer: "Most repairs can be scheduled within 24-48 hours. Emergency services are available for urgent issues, often with same-day service."
+      question: "How quickly can you start a drywall project?",
+      answer: "We typically can schedule most repairs within 24-48 hours. For emergency repairs, like water damage, we offer priority scheduling. Larger projects are scheduled based on scope and availability."
     }
   ];
 
@@ -27,10 +27,10 @@ const FAQ = () => {
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2">
             <h3 className="text-3xl lg:text-4xl font-bold lg:tracking-tight">
-              Common Questions
+              Frequently Asked Questions
             </h3>
             <p className="text-lg mt-4 text-slate-600 dark:text-slate-400">
-              Everything you need to know about our service
+              Everything you need to know about our drywall services
             </p>
           </div>
           
