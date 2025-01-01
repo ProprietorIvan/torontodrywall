@@ -92,7 +92,7 @@ const StepsSection = () => {
             </div>
             <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
               Lets see some of our top projects. You can ensure that every project on our platform 
-              is rated and reviewed by their past customers. We cone up with the results.
+              is rated 5 star and reviewed by their past customers. We cone up with the results.
             </p>
           </div>
           
