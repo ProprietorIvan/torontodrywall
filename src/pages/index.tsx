@@ -70,18 +70,19 @@ const Home = () => {
       <div className="min-h-screen bg-white">
         <Navigation showActions={false} />
 
-        {/* Hero Section - Adjusted for better proportions */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-          {/* Background Image with Mask */}
+        {/* Hero Section - Refined */}
+        <section className="relative min-h-[90vh] flex items-center">
+          {/* Background Image */}
           <div className="absolute inset-0 w-full h-full">
             <Image
               src="/photos/homepage/1.jpg"
               alt="Professional Drywall Repair Services in Toronto"
               fill
-              className="mask-stripes object-cover object-[150%_-200%]"
+              className="object-cover object-[85%_25%]"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
+            {/* Subtle gradient for text readability */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
 
           {/* Content */}
@@ -90,7 +91,7 @@ const Home = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
                 Expert Drywall Repairs in Toronto
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8">
+              <p className="text-xl md:text-2xl text-white mb-8">
                 Professional drywall installation, repair, and finishing services across the GTA
               </p>
               <button
@@ -110,7 +111,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Main Content Sections */}
         <div className="relative z-10">
           <ComparisonSection />
           <StepsSection />
@@ -118,13 +118,13 @@ const Home = () => {
           <FAQ />
         </div>
 
-        {/* CTA Section - Enhanced */}
-        <section className="bg-black text-white py-24 md:py-32">
+        {/* CTA Section */}
+        <section className="bg-black text-white py-24">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Need Professional Drywall Services in Toronto?
             </h2>
-            <p className="text-gray-400 mb-12 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-gray-300 mb-12 text-xl max-w-3xl mx-auto">
               Join hundreds of satisfied Toronto homeowners who trust us with their drywall needs
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
